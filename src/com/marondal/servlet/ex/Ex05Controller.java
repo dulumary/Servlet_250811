@@ -8,17 +8,19 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/servlet/ex04")
-public class Ex04Controller extends HttpServlet {
+@WebServlet("/servlet/ex05")
+public class Ex05Controller extends HttpServlet {
 
+    // Post
+    // 파라미터로 전달 받을 값이
+    // 보안적으로 예민한 데이터,
+    // 주소로 표현하기 긴 데이터,
+    // 파일
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        response.setCharacterEncoding("utf-8");
+        // 이름과 생년월일(보안적으로 민감한 데이터)을 전달 받고, 이름과 나이를 html 로 구성
         response.setContentType("text/html");
-
-        // 이름과 생년월일을 전달 받고,
-        // 이름과 나이를 html 구성
 
         PrintWriter out = response.getWriter();
 
