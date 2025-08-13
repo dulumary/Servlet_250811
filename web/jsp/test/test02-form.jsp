@@ -8,11 +8,13 @@
 <body>
     <div class="container">
         <h2>체격 조건 입력</h2>
-        <div class="d-flex align-items-end">
-            <input type="text" class="form-control col-2"><div>cm</div>
-            <input type="text" class="form-control col-2 ml-3"><div>kg</div>
-            <button type="button" class="btn btn-info ml-3">계산</button>
-        </div>
+        <form method="get" action="/jsp/test/test02.jsp">
+            <div class="d-flex align-items-end">
+                <input type="text" class="form-control col-2" name="height"><div>cm</div>
+                <input type="text" class="form-control col-2 ml-3" name="weight"><div>kg</div>
+                <button type="submit" class="btn btn-info ml-3">계산</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
