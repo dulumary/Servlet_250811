@@ -8,16 +8,18 @@
 <body>
     <div class="container">
         <h2>길이 변환</h2>
-        <div class="d-flex align-items-end">
-            <input type="text" class="form-control col-2 mr-1">
-            <div>cm</div>
-        </div>
-        <label>인치 <input type="checkbox"></label>
-        <label>야드 <input type="checkbox"></label>
-        <label>피트 <input type="checkbox"></label>
-        <label>미터 <input type="checkbox"></label>
-        <br>
-        <button type="button" class="btn btn-success">변환</button>
+        <form method="post" action="/jsp/test/test05.jsp">
+            <div class="d-flex align-items-end">
+                <input type="text" class="form-control col-2 mr-1" name="cm">
+                <div>cm</div>
+            </div>
+            <label>인치 <input type="checkbox" name="unit" value="inch"></label>
+            <label>야드 <input type="checkbox" name="unit" value="yard"></label>
+            <label>피트 <input type="checkbox" name="unit" value="feet"></label>
+            <label>미터 <input type="checkbox" name="unit" value="meter"></label>
+            <br>
+            <button type="submit" class="btn btn-success">변환</button>
+        </form>
     </div>
 
 
