@@ -29,8 +29,11 @@
 
     // 검색 대상 메뉴
     String target = request.getParameter("menu");
-
+    // 4.0 이하 제외 여부
+    String filter = request.getParameter("filter");
 %>
+
+    <%= filter %>
     <div class="container">
         <h2 class="text-center">검색 결과</h2>
         <table class="table text-center">
@@ -43,13 +46,16 @@
             </thead>
             <tbody>
             <% for(Map<String, Object> store:list) {
-                if(target.equals(store.get("menu"))) { %>
+                if(target.equals(store.get("menu"))) {
+                    double point = (Double)store.get("point");
+                    if(filter == null || point > 4.0) { %>
                 <tr>
                     <td><%= store.get("menu") %></td>
                     <td><%= store.get("name") %></td>
                     <td><%= store.get("point")%></td>
                 </tr>
-            <% }
+            <%      }
+                }
             } %>
             </tbody>
         </table>

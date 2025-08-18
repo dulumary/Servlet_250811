@@ -11,7 +11,7 @@
         <form method="get" action="/jsp/test/test07.jsp">
             <div class="d-flex align-items-end">
                 <input type="text" class="form-control col-2 mr-2" name="menu">
-                <label><input type="checkbox">4점 이하 제외</label>
+                <label><input type="checkbox" name="filter">4점 이하 제외</label>
             </div>
             <button type="submit" class="btn btn-success mt-2">검색</button>
         </form>
