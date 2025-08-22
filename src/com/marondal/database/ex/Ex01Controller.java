@@ -1,5 +1,6 @@
 package com.marondal.database.ex;
 
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -8,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
+@WebServlet("/db/ex/ex01")
 public class Ex01Controller extends HttpServlet {
 
     @Override
@@ -37,7 +39,34 @@ public class Ex01Controller extends HttpServlet {
             // 조회된 결과 다루기
             ResultSet resultSet = statement.executeQuery(query);
 
+            while(resultSet.next()) {
+                String title = resultSet.getString("title");
+                int price = resultSet.getInt("price");
+                String description = resultSet.getString("description");
 
+
+                out.println("제목 : " + title + " 가격 : " + price + " 설명 : " + description);
+            }
+
+            statement.close();
+
+
+            // INSERT
+//            query = "INSERT INTO `used_goods`\n" +
+//                    "(`seller_id`, `title`, `price`, `description`)\n" +
+//                    "VALUE \n" +
+//                    "(3, '고양이 간식 팝니다', 5000, '저희 고양이가 입맛이 까다로워서 안먹어요 ㅠㅠ');";
+//
+//            statement = connection.createStatement();
+//
+//            // INSERT, UPDATE, DELETE
+//            // 실행된 행의 개수
+//            int count = statement.executeUpdate(query);
+//
+//            out.println("실행 결과 : " + count);
+//
+//            statement.close();
+            connection.close();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
