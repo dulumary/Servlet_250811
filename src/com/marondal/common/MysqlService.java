@@ -71,7 +71,25 @@ public class MysqlService {
             return null;
         }
     }
-    
+
+
+    // insert, update, delete
+    public int update(String query) {
+
+        try {
+            Statement statement = connection.createStatement();
+
+            int count = statement.executeUpdate(query);
+
+            statement.close();
+
+            return count;
+
+        } catch (SQLException e) {
+            return -1;
+        }
+
+    }
     
     // 접속 끊기
     public boolean disconnect() {
