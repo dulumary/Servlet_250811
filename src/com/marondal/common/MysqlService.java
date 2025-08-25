@@ -7,8 +7,27 @@ import java.util.List;
 import java.util.Map;
 
 public class MysqlService {
+    // 클래스를 만든 사람이 해당 클래스의 객체가 무분별하게 만들어지는것을 제어
+    // 하나의 객체를 만들어서 이를 공용으로 활용하게 한다.
+    // 디자인 패턴
+    // Singleton Pattern
+    // static 변수 : 객체생성 없이 사용할 수 있는 멤버변수
+    private static MysqlService mysqlService = null;
 
     private Connection connection;
+
+
+    // 해당 클래스의 객체를 return 하는 메서드
+    // 객체를 사용하고자 하는 곳에서 생성자 대신 사용할 메서드
+    // static 메서드 : 객체 생성 없이 호출할 수 있는 메서드
+    public static MysqlService getInstance() {
+
+        if(mysqlService == null) {
+            mysqlService = new MysqlService();
+        }
+
+        return mysqlService;
+    }
 
     // 데이터 베이스 접속 기능
     public boolean connect() {

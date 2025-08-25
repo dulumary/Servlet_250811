@@ -9,10 +9,12 @@
     <div class="container">
         <h2>즐겨찾기 추가</h2>
         <label>사이트</label>
-        <input type="text" class="form-control col-3">
-        <label>사이트 주소</label>
-        <input type="text" class="form-control col-8">
-        <button type="button" class="btn btn-success mt-3">추가</button>
+        <form method="post" action="/db/favorite/create">
+            <input type="text" class="form-control col-3" name="name">
+            <label>사이트 주소</label>
+            <input type="text" class="form-control col-8" name="url">
+            <button type="submit" class="btn btn-success mt-3">추가</button>
+        </form>
     </div>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <body>
 
 <%
-    MysqlService mysqlService = new MysqlService();
+    MysqlService mysqlService = MysqlService.getInstance();
 
     mysqlService.connect();
 
@@ -37,7 +37,7 @@
                 <tr>
                     <td><%= favorite.get("name") %></td>
                     <td><a href="<%= favorite.get("url") %>"><%= favorite.get("url") %></a></td>
-                    <td><a href="#">삭제</a></td>
+                    <td><a href="/db/favorite/delete?id=<%= favorite.get("id") %>">삭제</a></td>
                 </tr>
             <% } %>
             </tbody>
